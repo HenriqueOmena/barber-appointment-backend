@@ -5,8 +5,8 @@
   "username": "root",
   "password": "",
   "database": "barber_appointment",
-  "migrations": ["./src/datanase/migrations/*.ts"],
+  "migrations": ["./src/database/migrations/*.ts"],
   "cli": {
-    "migrationsDir": "./src/datanase/migrations"
+    "migrationsDir": "./src/database/migrations"
   }
 }
