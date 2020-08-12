@@ -4,5 +4,9 @@
   "port": 3306,
   "username": "root",
   "password": "",
-  "database": "barber_appointment"
+  "database": "barber_appointment",
+  "migrations": ["./src/datanase/migrations/*.ts"],
+  "cli": {
+    "migrationsDir": "./src/datanase/migrations"
+  }
 }
