@@ -20,8 +20,8 @@ export default class CreateAppointments1597273323854
             default: 'uuid_generate_v4()',
           },
           {
-            name: 'provider_id',
-            type: 'uuid',
+            name: 'provider',
+            type: 'varchar',
           },
           {
             name: 'date',
@@ -40,21 +40,9 @@ export default class CreateAppointments1597273323854
           {
             name: 'deleted_at',
             type: 'timestamp',
-            default: 'now()',
+            isNullable: true,
           },
         ],
-      })
-    );
-
-    await queryRunner.createForeignKey(
-      'appointments',
-      new TableForeignKey({
-        name: 'AppointmentProvider',
-        columnNames: ['provider_id'],
-        referencedColumnNames: ['id'],
-        referencedTableName: 'users',
-        onDelete: 'SET NULL',
-        onUpdate: 'CASCADE',
       })
     );
   }
