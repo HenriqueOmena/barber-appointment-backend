@@ -8,8 +8,8 @@ import {
   DeleteDateColumn,
 } from 'typeorm';
 
-@Entity('Users')
-class Users {
+@Entity('users')
+class User {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
@@ -32,4 +32,4 @@ class Users {
   deleted_at: Date | null;
 }
 
-export default Users;
+export default User;

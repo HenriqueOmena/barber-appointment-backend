@@ -1,4 +1,5 @@
 import { getRepository } from 'typeorm';
+import User from '../models/User';
 
 interface Request {
   name: string;
@@ -7,7 +8,7 @@ interface Request {
 }
 
 export default class CreateUserService {
-  public async execute({ name, email, passowrd }): Promise<User> {
+  public async execute({ name, email, password }: Request): Promise<User> {
     const usersRepository = getRepository(User);
 
     const checkUserExists = await usersRepository.findOne({
@@ -21,7 +22,7 @@ export default class CreateUserService {
     const user = usersRepository.create({
       name,
       email,
-      passowrd,
+      password,
     });
 
     await usersRepository.save(user);
