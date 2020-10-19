@@ -1,5 +1,6 @@
 import { getRepository } from 'typeorm';
 import { compare } from 'bcryptjs';
+import { sign } from 'jsonwebtoken';
 import User from '../models/User';
 
 interface Request {
@@ -29,6 +30,11 @@ class AuthenticateUserService {
     if (!passwordMatched) {
       throw new Error('incorrect email or password');
     }
+
+    const token = sign({}, 'md5tokentalves', {
+      subject: user.id,
+      expiresIn:
+    });
 
     return {
       user,
