@@ -33,9 +33,10 @@ class AuthenticateUserService {
       throw new Error('incorrect email or password');
     }
 
-    const token = sign({}, 'md5tokentalves', {
-      subject: authConfig.jwt.secret,
-      expiresIn: authConfig.jwt.expiresIn,
+    const { secret, expiresIn } = authConfig.jwt;
+    const token = sign({}, secret, {
+      subject: user.id,
+      expiresIn,
     });
 
     return {
