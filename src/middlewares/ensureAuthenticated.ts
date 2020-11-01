@@ -23,12 +23,12 @@ export default function ensureAuthenticated(
   try {
     const decoded = verify(token, secret);
     const { sub } = decoded as TokenPayload;
-
+    console.log(decoded);
     request.user = {
       id: sub,
     };
     return next();
   } catch {
-    throw new Error('Invalid JWT');
+    throw new Error('Invalid JWT, try relogin');
   }
 }
