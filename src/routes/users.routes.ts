@@ -39,13 +39,13 @@ usersRouter.patch(
   async (request, response) => {
     try {
       const updateUserAvatar = new UpdateUserAvatarService();
-
+      console.log(request.file);
       const user = await updateUserAvatar.execute({
         user_id: request.user.id,
         avatarFileName: request.file.filename,
       });
 
-      // delete user.password;
+      delete user.password;
 
       return response.json(user);
     } catch (err) {
